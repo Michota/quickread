@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+/* General styling */
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito", sans-serif;
+  user-select: none;
+}
+
+body {
+  background-color: #222222;
+  color: #fff;
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  max-width: 80%;
+  margin: auto;
+  padding: 10px;
+}
+
+:root {
+  --hgclr: #ffe3b3;
+}
+
+/* .thepage {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  max-width: 500px;
+  margin: auto;
+  padding: 10px;
+} */
+
+::selection {
+  color: black;
+  background: white;
+}
+
+.hgfont {
+  color: black;
+  background-color: var(--hgclr);
+  border: 2px solid var(--hgclr);
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h1,
+h2,
+h3 {
+  cursor: default;
+}
+
+button {
+  margin: 15px;
+  text-decoration: none;
+  font-size: 1.3rem;
+  background: none;
+  color: var(--hgclr);
+  cursor: pointer;
+  box-shadow: 1.5px 1.5px 1px 1.5px var(--hgclr);
+  transition: 0.1s;
+}
+
+button:hover {
+  transition: 0.1s;
+  transform: scale(0.98);
+  box-shadow: 1px 1px 1px 1px var(--hgclr);
+}
+
+button:active {
+  transition: 0.1s;
+  transform: scale(0.95);
+  box-shadow: 1px 1px 1px 1px var(--hgclr);
+}
+
+.hidden {
+  display: none;
+}
+/* Number game */
+.numbersGame {
+}
+
+input[type="text"] {
+  text-align: center;
+  background-color: transparent;
+  font-size: 1.5rem;
+  border: none;
+  size: 5;
+  box-shadow: 0px 2px 0px 0px var(--hgclr);
+  color: var(--hgclr);
+  outline: none;
+}
+input[type="text"]:focus {
+  outline: none;
+}
+
+input[type="text"]::placeholder {
+  color: var(--hgclr);
+}
+
+.numberToRead {
+  font-size: 2em;
+}
+
+#pointsText {
+  margin-top: 1rem;
+}
+
+#announcerText {
+  margin: 0.5rem;
+}
