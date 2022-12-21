@@ -26,9 +26,8 @@ numGame.classList.add('hidden');
 
 ////////// NumGame //////////
 let points = 0; // player scored points. if points > 0 ==> game over
-let hearts = 3; // FIXME:has to be highger by 1, becasue of didPlayerClicked() behavior;
+let hearts = 5 + 1; // FIXME:has to be highger by 1, becasue of didPlayerClicked() behavior;
 let currentNum = 0; // number to remember AT THIS VERY MOMENT
-let level = 1;
 let gameIsOn = 0;
 let playerClicked = 0;
 
@@ -39,12 +38,12 @@ const gameLostEvent = function () {
 
   titleEl.innerHTML = `Game <span class="hgfont">Lost</span>`;
   announcerEl.innerHTML = `Well... You tried!`;
-  pointsText.innerHTML = `<span id="pointsNum" class="hgfont">0</span> Points Scored`;
+  pointsText.innerHTML = `<span id="pointsNum" class="hgfont">Points Scored</span> ${points}`;
 };
 
 const randomNumber = (min, max) => {
-  min = Math.ceil(min);
-  max = Math.floor(max);
+  min = Math.ceil(Number(min));
+  max = Math.floor(Number(max));
   return Math.floor(Math.random() * (max - min) + min);
 };
 
@@ -62,13 +61,14 @@ const displayNum = function () {
       pointsSystem();
       didPlayerClicked();
     }
-    currentNum = randomNumber(1 * level, 9 * level);
+    playerInput.setAttribute('maxlength', points.toString().length + 1);
+    currentNum = randomNumber(1, points + 1);
     numToRead.textContent = currentNum;
     const timeOut = setTimeout(() => {
       numToRead.textContent = ' ';
     }, 200 /* y - Time of displaying randomized number*/);
     // Waiting for player click. if he didn't, act as if he hasn't seen a number
-  }, 2000 /* x - how often the number should be generated */);
+  }, 2000 + points.toString().length * 200 /* x - how often the number should be generated */);
 };
 
 const didPlayerClicked = function () {
@@ -138,23 +138,7 @@ const numGameEntered = () => {
 const numGameShowHide = function () {
   numToRead.classList.toggle('hidden');
   playerInput.classList.toggle('hidden');
-  pointsText.classList.toggle('hidden');
   numGameStartBtn.classList.toggle('hidden');
-  announcerEl.classList.toggle('hidden');
-  titleEl.classList.toggle('hidden');
-};
-
-const numGameStateElements = state => {
-  // If game hasn't started yety
-  if (!state) {
-    numToRead.classList.add('hidden');
-    playerInput.classList.add('hidden');
-    pointsText.classList.add('hidden');
-  } else {
-    numToRead.classList.remove('hidden');
-    playerInput.classList.remove('hidden');
-    pointsText.classList.remove('hidden');
-  }
   announcerEl.classList.toggle('hidden');
   titleEl.classList.toggle('hidden');
 };
@@ -162,6 +146,7 @@ const numGameStateElements = state => {
 numGameStartBtn.addEventListener('click', () => {
   numGameShowHide();
   startTheGame();
+  pointsText.classList.toggle('hidden');
 });
 
 // TEST
