@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 /* General styling */
 
@@ -7,12 +7,16 @@
 *::before {
   margin: 0;
   padding: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   user-select: none;
+}
+:root {
+  --hgclr: #ffe3b3;
+  --bgdark: #222222;
 }
 
 body {
-  background-color: #222222;
+  background-color: var(--bgdark);
   color: #fff;
   text-align: center;
   position: fixed;
@@ -22,10 +26,6 @@ body {
   max-width: 80%;
   margin: auto;
   padding: 10px;
-}
-
-:root {
-  --hgclr: #ffe3b3;
 }
 
 /* .thepage {
@@ -39,12 +39,12 @@ body {
 } */
 
 ::selection {
-  color: black;
+  color: var(--bgdark);
   background: white;
 }
 
 .hgfont {
-  color: black;
+  color: var(--bgdark);
   background-color: var(--hgclr);
   border: 2px solid var(--hgclr);
 }
@@ -90,24 +90,25 @@ button:active {
   display: none;
 }
 /* Number game */
-.numbersGame {
-}
+/* .numbersGame {
+  
+} */
 
-input[type="text"] {
+input[type='text'] {
   text-align: center;
   background-color: transparent;
   font-size: 1.5rem;
   border: none;
-  size: 5;
   box-shadow: 0px 2px 0px 0px var(--hgclr);
   color: var(--hgclr);
   outline: none;
+  caret-color: transparent;
 }
-input[type="text"]:focus {
+input[type='text']:focus {
   outline: none;
 }
 
-input[type="text"]::placeholder {
+input[type='text']::placeholder {
   color: var(--hgclr);
 }
 

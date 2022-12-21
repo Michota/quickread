@@ -17,12 +17,27 @@
     </div>
     <!-- Numbers game screen -->
     <div class="numbersGame">
-      <h1 id="title" class=""><span class="hgfont">Number</span> Game</h1>
-      <p id="announcerText" class="">After the game begins, numbers will be displayed. Your task is to constantly look at screen, remember numbers, and then QUICKLY type them in input field below</p>
+      <h1 id="title"><span class="hgfont">Number</span> Game</h1>
+      <p id="announcerText">
+        After the game begins, numbers will be displayed. Your task is to
+        constantly look at screen, remember numbers, and then QUICKLY type them
+        in input field below
+      </p>
       <button class="numGameStartBtn">I am ready</button>
-      <h1><span class="numberToRead hgfont">5</span></h1>
-      <br /><input class="playerInput" size="2" maxlength="2" placeholder="1" type="text" />
-      <h3 id="pointsText"><span id="pointsNum" class="hgfont">3</span> Points</h3>
+      <h1><span class="numberToRead hgfont">0</span></h1>
+      <br />
+      <!-- maxlength chagned based on level -->
+      <input
+        class="playerInput"
+        size="3"
+        maxlength="2"
+        placeholder=""
+        type="text"
+        autofocus
+      />
+      <h3 id="pointsText">
+        <span id="pointsNum" class="hgfont">0</span> Points
+      </h3>
     </div>
     <!--  -->
   </body>
